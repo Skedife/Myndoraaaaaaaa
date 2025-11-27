@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MYNDORA | HealthSync — Conectando la salud con el tiempo real</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --blue-primary: #0066FF;
+      --blue-dark: #0044cc;
+      --blue-light: #e6f0ff;
+      --gray-800: #222222;
+      --white: #ffffff;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Inter', sans-serif; line-height:1.7; color:var(--gray-800); background:var(--white); }
+    a { text-decoration:none; color:inherit; }
+
+    /* Header */
+    header {
+      position:fixed; top:0; left:0; right:0; background:var(--white);
+      box-shadow:0 2px 20px rgba(0,102,255,0.1); z-index:1000;
+    }
+    nav {
+      max-width:1400px; margin:0 auto; padding:1rem 2rem;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .logo { font-size:2.4rem; font-weight:800; color:var(--blue-primary); }
+    .nav-links { display:flex; gap:2.5rem; }
+    .nav-links a { font-weight:500; transition:.3s; }
+    .nav-links a:hover { color:var(--blue-primary); }
+    .menu-toggle { display:none; font-size:1.7rem; cursor:pointer; color:var(--blue-primary); }
+
+    /* Hero */
+    .hero {
+      min-height:100vh; background:linear-gradient(135deg, var(--blue-light) 0%, #ffffff 100%);
+      display:flex; align-items:center; padding-top:100px;
+    }
+    .container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+    .hero-content { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+    .hero-text h1 { font-size:4.2rem; line-height:1.1; color:var(--blue-dark); }
+    .hero-text h1 span { color:var(--blue-primary); }
+    .hero-text p { font-size:1.35rem; margin:1.8rem 0 2.8rem; color:#444; }
+    .btn-primary {
+      background:var(--blue-primary); color:white; padding:1.1rem 3rem;
+      border-radius:50px; font-weight:600; font-size:1.1rem;
+      box-shadow:0 10px 30px rgba(0,102,255,0.3); transition:all .3s;
+    }
+    .btn-primary:hover { background:var(--blue-dark); transform:translateY(-5px); }
+
+    /* Secciones generales */
+    section { padding:120px 0; }
+    .section-title { text-align:center; font-size:3.2rem; margin-bottom:4rem; color:var(--blue-dark); }
+    .section-title span { color:var(--blue-primary); }
+
+    .about-grid, .features-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:2.5rem;
+    }
+    .card {
+      background:white; padding:2.5rem; border-radius:20px;
+      box-shadow:0 12px 35px rgba(0,102,255,0.1); transition:.4s;
+    }
+    .card:hover { transform:translateY(-12px); box-shadow:0 25px 50px rgba(0,102,255,0.2); }
+    .card h3 { font-size:1.6rem; margin-bottom:1rem; color:var(--blue-primary); }
+
+    /* Equipo con fotos reales */
+    .team-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:3rem;
+    }
+    .team-member {
+      text-align:center; padding:2rem; background:white; border-radius:24px;
+      box-shadow:0 12px 35px rgba(0,102,255,0.12); transition:all .4s;
+    }
+    .team-member:hover { transform:translateY(-15px); box-shadow:0 25px 50px rgba(0,102,255,0.22); }
+    .team-photo {
+      width:180px; height:180px; border-radius:50%; object-fit:cover;
+      border:6px solid var(--blue-light); box-shadow:0 10px 30px rgba(0,102,255,0.25);
+      margin-bottom:1.5rem; transition:transform .4s;
+    }
+    .team-member:hover .team-photo { transform:scale(1.08); }
+    .team-member h3 { font-size:1.5rem; margin-bottom:0.4rem; color:var(--blue-dark); }
+    .team-member p { color:#555; font-size:1rem; font-weight:500; }
+
+    footer { background:var(--blue-dark); color:white; text-align:center; padding:5rem 0; }
+
+    @media (max-width:768px) {
+      .nav-links { position:fixed; top:70px; right:-100%; background:white; flex-direction:column;
+        width:100%; height:calc(100vh-70px); padding:3rem 2rem; transition:.4s; }
+      .nav-links.active { right:0; }
+      .menu-toggle { display:block; }
+      .hero-content { grid-template-columns:1fr; text-align:center; }
+      .hero-text h1 { font-size:2.8rem; }
+      .team-photo { width:150px; height:150px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">MYNDORA</div>
+      <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+      <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#healthsync">HealthSync</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>HealthSync<br><span>Conectando la salud con el tiempo real</span></h1>
+          <p>Somos <strong>MYNDORA</strong> — la empresa dominicana que está revolucionando la atención médica con inteligencia artificial, datos en tiempo real y un enfoque profundamente humano.</p>
+          <a href="#healthsync" class="btn-primary">Descubre HealthSync</a>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:20rem;color:var(--blue-primary);opacity:0.12;">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiénes Somos -->
+  <section id="nosotros">
+    <div class="container">
+      <h2 class="section-title">Quiénes <span>Somos</span></h2>
+      <p style="text-align:center;max-width:900px;margin:0 auto 4rem;font-size:1.25rem;color:#444;line-height:1.8;">
+        En <strong>MYNDORA</strong> somos una empresa de software enfocada en transformar la atención médica mediante soluciones inteligentes, rápidas y profundamente humanas. Nacimos con un propósito claro: cerrar la brecha entre la información clínica y quienes la necesitan, justo en el momento en que importa.
+      </p>
+
+      <div class="about-grid">
+        <div class="card">
+          <h3>Visión</h3>
+          <p>Ser la compañía líder en innovación médica digital del mundo, ofreciendo soluciones que mejoren, agilicen y eleven la calidad del servicio de salud, asegurando que cada persona reciba atención clara, oportuna y humanizada sin importar dónde se encuentre.</p>
+        </div>
+        <div class="card">
+          <h3>Misión</h3>
+          <p>Impulsar un ecosistema de salud inteligente que unifique información clínica, comportamiento del usuario y análisis predictivo en tiempo real, para que médicos, pacientes y centros de salud tomen mejores decisiones, más rápido y con mayor seguridad.</p>
+        </div>
+        <div class="card">
+          <h3>Valores</h3>
+          <p>La salud del futuro debe ser <strong>predictiva</strong>, <strong>personalizada</strong>, <strong>conectada</strong> y <strong>disponible a tiempo</strong>. Nadie debería esperar horas por información vital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HealthSync -->
+  <section id="healthsync" style="background:var(--blue-light);">
+    <div class="container">
+      <h2 class="section-title">HealthSync — Nuestro Proyecto Principal</h2>
+      <p style="text-align:center;max-width:900px;margin:0 auto 4rem;font-size:1.25rem;color:#444;">
+        HealthSync es la plataforma inteligente que unifica todo el recorrido clínico del paciente y lo conecta con el lugar correcto en el momento correcto.
+      </p>
+
+      <div class="features-grid">
+        <div class="card"><h3>Orientación Inteligente</h3><p>Recomienda hospitales, doctores y servicios según la necesidad real del paciente.</p></div>
+        <div class="card"><h3>Historial Clínico Unificado</h3><p>Un registro completo, claro y accesible en tiempo real.</p></div>
+        <div class="card"><h3>IA Predictiva</h3><p>Anticipa riesgos y detecta señales tempranas antes de que ocurran crisis.</p></div>
+        <div class="card"><h3>Para Médicos</h3><p>Visión profunda del paciente: patrones, cambios y alertas tempranas.</p></div>
+        <div class="card"><h3>Para Centros de Salud</h3><p>Predice saturaciones y optimiza recursos.</p></div>
+        <div class="card"><h3>Para Pacientes</h3><p>Orientación confiable, acceso rápido y atención más humana.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Otros Proyectos -->
+  <section id="proyectos">
+    <div class="container">
+      <h2 class="section-title">Otros <span>Proyectos</span></h2>
+      <div class="about-grid">
+        <div class="card"><h3>MedFlow Analytics</h3><p>Sistema avanzado de análisis para hospitales que identifica cuellos de botella y predice saturaciones.</p></div>
+        <div class="card"><h3>ClinicAI Assistant</h3><p>Asistente médico basado en IA para diagnósticos diferenciales y seguimiento de pacientes crónicos.</p></div>
+        <div class="card"><h3>PatientConnect</h3><p>Portal integral para pacientes: citas, resultados, recordatorios y educación personalizada.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipo con fotos reales -->
+  <section id="equipo" style="background:var(--blue-light);">
+    <div class="container">
+      <h2 class="section-title">Nuestro <span>Equipo</span></h2>
+      <p style="text-align:center;max-width:800px;margin:0 auto 4rem;font-size:1.25rem;color:#444;">
+        Cinco dominicanos apasionados construyendo el futuro de la salud digital en República Dominicana.
+      </p>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="img/Kevin.jpg" alt="Kevin Madera Beato" class="team-photo">
+          <h3>Kevin Madera Beato</h3>
+          <p><strong>CEO & Fundador</strong><br>Estratega Clínico-Digital</p>
+        </div>
+        <div class="team-member">
+          <img src="img/Sebas.jpg" alt="Saúl Del Jesús Hidalgo" class="team-photo">
+          <h3>Saúl Del Jesús Hidalgo</h3>
+          <p><strong>AI & Data Science Lead</strong><br>Inteligencia Artificial</p>
+        </div>
+        <div class="team-member">
+          <img src="img/Alberto.jpg" alt="Alberto De La Cruz" class="team-photo">
+          <h3>Alberto De La Cruz</h3>
+          <p><strong>Lead Developer</strong><br>Arquitectura de Software</p>
+        </div>
+        <div class="team-member">
+          <img src="img/Rafael.jpg" alt="Yunior Rafael Gonzales" class="team-photo">
+          <h3>Yunior Rafael Gonzales</h3>
+          <p><strong>Full Stack Developer</strong><br>Frontend & Backend</p>
+        </div>
+        <div class="team-member">
+          <img src="img/Juan.jpg" alt="José Genuel Mercedes Abreu" class="team-photo">
+          <h3>José Genuel Mercedes Abreu</h3>
+          <p><strong>Mobile & UX Engineer</strong><br>Experiencia de Usuario</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contacto">
+    <div class="container">
+      <h2 style="font-size:2.8rem;margin-bottom:1rem;">MYNDORA</h2>
+      <p style="font-size:1.4rem;opacity:0.9;">HealthSync — Conectando la salud con el tiempo real</p>
+      <p style="margin-top:3rem;opacity:0.7;font-size:1rem;">© 2025 MYNDORA • República Dominicana</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior:'smooth' });
+        if (window.innerWidth <= 768) document.querySelector('.nav-links').classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
